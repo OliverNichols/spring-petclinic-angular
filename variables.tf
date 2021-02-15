@@ -11,7 +11,7 @@ variable "project_name" {
 
 // VM Size 
 variable "vm_size" {
-    default = "Standard_B1ms"
+    default = "Standard_D2_v2"
   
 }
 // my free trial subscription id
@@ -32,7 +32,7 @@ variable "tenant_id" {
 }
 
 variable "kubernetes_version" {
-    default = "1.16.10"
+    default = "1.19.7"
 }
 
 variable "ssh_key" {
