@@ -4,13 +4,13 @@
 # https://aka.ms/yaml
 
 trigger:
-- feature-pipeline
+- dev
 
 pool:
   vmImage: ubuntu-latest
 
 steps:
-- bash: git clone https://github.com/pet-clinic-team-3/pet-clinic
+- bash: git clone https://github.com/pet-clinic-team-3/pet-clinic && git checkout feature-pipeline
   displayName: 'Clone infrastructure repo'
   
 - bash: bash pet-clinic/pipeline/dependencies.sh 
