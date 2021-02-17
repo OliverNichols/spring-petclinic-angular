@@ -19,12 +19,8 @@ steps:
 - bash: bash pet-clinic/pipeline/test.sh 
   displayName: 'Running test script'
   
-- bash: bash pet-clinic/pipeline/build.sh
-  displayName: 'Running build script'
-  
-#- bash: grep -qxF "51.141.237.164 nexus-vm" /etc/hosts || echo "51.141.237.164 nexus-vm" | sudo tee -a /etc/hosts && bash pipeline/push.sh
-- bash: grep -qxF "$(nexusip) nexus-vm" /etc/hosts || echo "$(nexusip) nexus-vm" | sudo tee -a /etc/hosts && bash pet-clinic/pipeline/push.sh
-  displayName: 'Running push script'
+- bash: bash pet-clinic/pipeline/push.sh -r $(nexusip) -u admin -p password
+  displayName: 'Running build + push script'
   
 - task: AzureKeyVault@1
   inputs:
