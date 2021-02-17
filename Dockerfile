@@ -27,5 +27,3 @@ EXPOSE 8080
 USER nginx
 
 HEALTHCHECK     CMD     [ "service", "nginx", "status" ]
-
-
