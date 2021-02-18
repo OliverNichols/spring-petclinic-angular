@@ -14,8 +14,8 @@ RUN echo "registry = \"$NPM_REGISTRY\"" > /workspace/.npmrc                     
 
 FROM $DOCKER_HUB/library/nginx:1.17.6 AS runtime
 
-
-COPY  --from=build /workspace/dist/ /usr/share/nginx/html/
+RUN mkdir -p /usr/share/nginx/html/petclinic
+COPY  --from=build /workspace/dist/ /usr/share/nginx/html/petclinic/
 
 RUN chmod a+rwx /var/cache/nginx /var/run /var/log/nginx                        && \
     sed -i.bak 's/listen\(.*\)80;/listen 8080;/' /etc/nginx/conf.d/default.conf && \
