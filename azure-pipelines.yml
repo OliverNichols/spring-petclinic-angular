@@ -22,7 +22,10 @@ steps:
 - bash: bash pet-clinic/pipeline/push.sh -r $(nexusip) -u admin -p password
   displayName: 'Running build + push script'
 
-- bash: bash pet-clinic/terraform/Terraform-Script.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)     
+- bash: |
+    cd pet-clinic/terrform
+    bash Terraform-Script.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)   
+    cd ..  
   displayName: 'Running Terraform script to create cluster'
 - task: AzureKeyVault@1
   inputs:
