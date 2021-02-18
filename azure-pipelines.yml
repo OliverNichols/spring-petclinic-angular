@@ -23,8 +23,8 @@ steps:
   displayName: 'Running build + push script'
 
 - bash: |
-    cd pet-clinic/terraform
-    bash Terraform-Script.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)    
+    cd pet-clinic/pipeline/terraform
+    bash run-terraform.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)    
   displayName: 'Running Terraform script to create cluster'
   
 - task: AzureKeyVault@1
