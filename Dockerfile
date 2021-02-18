@@ -5,9 +5,9 @@ FROM $DOCKER_HUB/library/node:10.10-alpine as build
 
 COPY . /workspace/
 
-ARG NPM_REGISTRY=" https://registry.npmjs.org"
+ARG NPM_REGISTRY="https://registry.npmjs.org"
 
-RUN echo "registry = \"$NPM_REGISTRY\"" > /workspace/.npmrc                              && \
+RUN echo "registry = '$NPM_REGISTRY'" > /workspace/.npmrc                              && \
     cd /workspace/                                                                       && \
     npm install                                                                          && \
     npm run build
