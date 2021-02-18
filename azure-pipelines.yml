@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- bash: git clone --branch feature-pipeline https://github.com/pet-clinic-team-3/pet-clinic
+- bash: git clone --branch dev https://github.com/pet-clinic-team-3/pet-clinic
   displayName: 'Clone infrastructure repo'
   
 - bash: bash pet-clinic/pipeline/dependencies.sh 
