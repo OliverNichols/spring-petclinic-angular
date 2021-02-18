@@ -10,7 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- bash: git clone https://github.com/pet-clinic-team-3/pet-clinic && cd pet-clinic && git checkout feature-pipeline && cd ..
+- bash: git clone --branch dev https://github.com/pet-clinic-team-3/pet-clinic
   displayName: 'Clone infrastructure repo'
   
 - bash: bash pet-clinic/pipeline/dependencies.sh 
@@ -24,9 +24,9 @@ steps:
 
 - bash: |
     cd pet-clinic/terraform
-    bash Terraform-Script.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)   
-    cd ..  
+    bash Terraform-Script.sh $(SERVICE-PRINCIPAL) $(SERVICE-PRINCIPAL-SECRET) $(TENANT-ID) $(SUBSCRIPTION)    
   displayName: 'Running Terraform script to create cluster'
+  
 - task: AzureKeyVault@1
   inputs:
     azureSubscription: 'Free Trial(dd51af7d-c19d-48b7-b874-dd60c8bdc78c)'
