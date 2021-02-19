@@ -52,7 +52,7 @@ You can also build the application in a dedicated docker image using the provide
 ```
 docker build -t spring-petclinic-angular:latest .
 ```
-
+ 
 Then you will be able to use it as follows:
 
 ```
